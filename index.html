@@ -183,6 +183,8 @@
             border-radius: 0 3px 3px 0;
             user-select: none;
             background-color: rgba(0, 0, 0, 0.3); 
+            color: var(--light-grey); /* Cor do texto da seta: cinzento claro */
+            background-color: rgba(74, 74, 74, 0.7); /* Fundo da seta: cinzento escuro do tema, mais opaco */
         }
 
         /* Posição do botão "next" */
@@ -193,7 +195,9 @@
 
         /* Efeito hover nos botões */
         .prev:hover, .next:hover {
-            background-color: var(--dark-grey); 
+            
+            background-color: var(--gold); /* Fundo dourado ao passar o rato */
+    color: white; /* Texto branco no hover */
         }
 
         /* Os pontinhos */
@@ -375,6 +379,11 @@
         // Mostra a imagem atual e ativa o ponto atual
         slides[slideIndex-1].style.display = "block";
         dots[slideIndex-1].className += " active";
+        // --- CÓDIGO NOVO AQUI PARA O AUTOMÁTICO ---
+    slideIndex++; // Avança para a próxima imagem
+    if (slideIndex > slides.length) {slideIndex = 1} // Volta ao início se chegar ao fim
+    setTimeout(showSlides, 4000); // Passa a imagem a cada 4 segundos (4000 milissegundos)
+    // ------------------------------------------
     }
     </script>
     </body>
