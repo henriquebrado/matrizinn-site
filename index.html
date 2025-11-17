@@ -180,7 +180,7 @@
             font-weight: bold;
             font-size: 18px;
             transition: 0.6s ease;
-            border-radius: 0 3px 3px 0;
+            /*border-radius: 0 3px 3px 0;*/
             user-select: none;
             background-color: rgba(0, 0, 0, 0.3); 
             color: var(--light-grey); /* Cor do texto da seta: cinzento claro */
@@ -192,6 +192,10 @@
             right: 0;
             border-radius: 3px 0 0 3px;
         }
+        .prev {
+    left: 0; /* DIZ À SETA PARA IR PARA A ESQUERDA */
+    border-radius: 0 3px 3px 0; /* Arredonda os cantos certos */
+}
 
         /* Efeito hover nos botões */
         .prev:hover, .next:hover {
@@ -341,50 +345,58 @@
         </div>
     </div>
 
-    <script>
-    let slideIndex = 1;
-    showSlides(slideIndex);
+   <script>
+let slideIndex = 1;
+let slideTimer; // Variável global para o temporizador
 
-    // Função para Próximo/Anterior
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
+// Mostra o primeiro slide e inicia o slideshow
+showSlides(slideIndex);
+
+// Função para Próximo/Anterior (MANUAL)
+function plusSlides(n) {
+    clearTimeout(slideTimer); // Cancela o timer automático
+    showSlides(slideIndex += n);
+}
+
+// Função para os pontinhos (MANUAL)
+function currentSlide(n) {
+    clearTimeout(slideTimer); // Cancela o timer automático
+    showSlides(slideIndex = n);
+}
+
+// Função principal que MOSTRA o slide e REINICIA o timer
+function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+
+    // Lógica de loop (se > max, volta ao 1; se < 1, vai para o max)
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+
+    // Esconde todos os slides
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    
+    // Desativa todos os pontos
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
     }
 
-    // Função para os pontinhos
-    function currentSlide(n) {
-        showSlides(slideIndex = n);
-    }
+    // Mostra o slide correto e ativa o ponto
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
 
-    function showSlides(n) {
-        let i;
-        let slides = document.getElementsByClassName("mySlides");
-        let dots = document.getElementsByClassName("dot");
-        
-        // Volta para a primeira imagem se chegar ao fim
-        if (n > slides.length) {slideIndex = 1}
-        
-        // Vai para a última imagem se clicar "anterior" na primeira
-        if (n < 1) {slideIndex = slides.length}
-        
-        // Esconde todas as imagens
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        
-        // Remove a classe "active" de todos os pontos
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        
-        // Mostra a imagem atual e ativa o ponto atual
-        slides[slideIndex-1].style.display = "block";
-        dots[slideIndex-1].className += " active";
-        // --- CÓDIGO NOVO AQUI PARA O AUTOMÁTICO ---
-    slideIndex++; // Avança para a próxima imagem
-    if (slideIndex > slides.length) {slideIndex = 1} // Volta ao início se chegar ao fim
-    setTimeout(showSlides, 4000); // Passa a imagem a cada 4 segundos (4000 milissegundos)
-    // ------------------------------------------
-    }
-    </script>
+    // REINICIA O TIMER AUTOMÁTICO (a cada 4 segundos)
+    // A função autoSlide apenas avança 1
+    slideTimer = setTimeout(autoSlide, 4000); 
+}
+
+// Função APENAS para o automático
+function autoSlide() {
+    showSlides(slideIndex += 1); // Avança 1
+}
+</script>
     </body>
 </html>
