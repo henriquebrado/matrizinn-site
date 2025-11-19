@@ -38,13 +38,37 @@
             border-radius: 15px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             text-align: center;
+            position: relative; /* Para posicionar as bandeiras */
         }
 
-        /* --- ESTILO DO LOGO (AGORA MUITO MAIOR) --- */
+        /* --- ESTILO DAS BANDEIRAS (NOVO) --- */
+        .lang-container {
+            display: flex;
+            justify-content: center; /* Ou flex-end para ficar à direita */
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .lang-flag {
+            width: 30px;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.3s ease, opacity 0.3s;
+            opacity: 0.6; /* Um pouco transparente quando não selecionada */
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .lang-flag:hover, .lang-flag.active {
+            transform: scale(1.2);
+            opacity: 1; /* Totalmente visível */
+        }
+
+        /* --- ESTILO DO LOGO --- */
         .logo-img {
-            max-width: 900px; /* Aumentado para ocupar mais de metade do cartão */
-            width: 100%;      /* Responsivo: encolhe se o ecrã for pequeno */
-            height: auto;     /* Mantém a proporção original de 1600x608 */
+            max-width: 500px; 
+            width: 100%;      
+            height: auto;     
             margin-bottom: 20px;
             border-radius: 15px; 
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -62,7 +86,7 @@
         h2 {
             font-family: 'Playfair Display', serif;
             color: var(--gold);
-            font-size: 1.3rem;
+            font-size: 1.8rem;
             margin-top: 40px;
             margin-bottom: 15px;
         }
@@ -260,28 +284,36 @@
 <body>
 
     <div class="container">
+        
+        <div class="lang-container">
+            <img src="https://flagcdn.com/w80/pt.png" class="lang-flag active" onclick="changeLanguage('pt')" alt="Português" title="Português">
+            <img src="https://flagcdn.com/w80/gb.png" class="lang-flag" onclick="changeLanguage('en')" alt="English" title="English">
+            <img src="https://flagcdn.com/w80/es.png" class="lang-flag" onclick="changeLanguage('es')" alt="Español" title="Español">
+            <img src="https://flagcdn.com/w80/fr.png" class="lang-flag" onclick="changeLanguage('fr')" alt="Français" title="Français">
+        </div>
+
         <img src="logo.jpg" alt="Logótipo Matriz Inn" class="logo-img">
 
-        <h1>Chegou o momento! ✨</h1>
+        <h1 id="txt-title">Chegou o momento! ✨</h1>
 
-        <p>É com muito orgulho que vos apresentamos o <strong>Matriz Inn</strong> 🏡</p>
+        <p id="txt-intro1">É com muito orgulho que vos apresentamos o <strong>Matriz Inn</strong> 🏡</p>
         
-        <p>Um alojamento local no centro de Fafe, feito para receber com conforto, qualidade e requinte.</p>
+        <p id="txt-intro2">Um alojamento local no centro de Fafe, feito para receber com conforto, qualidade e requinte.</p>
 
         <div class="location">
-            <i class="fas fa-map-marker-alt" style="color: var(--gold);"></i> Mesmo no coração da cidade.
+            <i class="fas fa-map-marker-alt" style="color: var(--gold);"></i> <span id="txt-location">Mesmo no coração da cidade.</span>
         </div>
 
         <div class="accommodations">
             <ul>
-                <li><i class="fas fa-home"></i> 1 Apartamento  T3 (para 6 pessoas)</li>
-                 <li><i class="fas fa-home"></i> 1 Apartamento  T3 (para 6 pessoas)</li>
-                <li><i class="fas fa-bed"></i> 1 Estúdio (para 2 pessoas)</li>
-                <li><i class="fas fa-bed"></i> 1 Estúdio (para 2 pessoas)</li>
+                <li id="txt-apt1"><i class="fas fa-home"></i> 1 Apartamento T3 (para 6 pessoas)</li>
+                <li id="txt-apt2"><i class="fas fa-home"></i> 1 Apartamento T3 (para 6 pessoas)</li>
+                <li id="txt-stu1"><i class="fas fa-bed"></i> 1 Estúdio (para 2 pessoas)</li>
+                <li id="txt-stu2"><i class="fas fa-bed"></i> 1 Estúdio (para 2 pessoas)</li>
             </ul>
         </div>
 
-        <h2>Visite Fafe:</h2>
+        <h2 id="txt-visit">Visite Fafe</h2>
 
         <div class="slideshow-container">
             
@@ -321,7 +353,7 @@
             <div class="mySlides fade"><img src="imgs/fafe33.jpg" style="width:100%"></div>
             <div class="mySlides fade"><img src="imgs/fafe34.jpg" style="width:100%"></div>
              
-            <div class="photo-credit">Fonte: Município de Fafe, Internet</div>
+            <div class="photo-credit" id="txt-credit">Fonte: Município de Fafe, Internet</div>
 
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -367,8 +399,8 @@
             <span class="dot" onclick="currentSlide(35)"></span>
         </div>
 
-        <p class="highlight">💛 Brevemente disponível.</p>
-        <p>Siga a nossa página e descubra tudo o que aí vem!</p>
+        <p class="highlight" id="txt-soon">💛 Brevemente disponível.</p>
+        <p id="txt-follow">Siga a nossa página e descubra tudo o que aí vem!</p>
 
         <div class="social-icons">
             <a href="https://www.facebook.com/profile.php?id=61572360527091" target="_blank" class="social-btn" aria-label="Facebook">
@@ -390,6 +422,91 @@
     </div>
 
 <script>
+/* ------------------ TRADUÇÕES ------------------ */
+const translations = {
+    pt: {
+        title: "Chegou o momento! ✨",
+        intro1: "É com muito orgulho que vos apresentamos o <strong>Matriz Inn</strong> 🏡",
+        intro2: "Um alojamento local no centro de Fafe, feito para receber com conforto, qualidade e requinte.",
+        location: "Mesmo no coração da cidade.",
+        apt1: "<i class='fas fa-home'></i> 1 Apartamento T3 (para 6 pessoas)",
+        apt2: "<i class='fas fa-home'></i> 1 Apartamento T3 (para 6 pessoas)",
+        stu1: "<i class='fas fa-bed'></i> 1 Estúdio (para 2 pessoas)",
+        stu2: "<i class='fas fa-bed'></i> 1 Estúdio (para 2 pessoas)",
+        visit: "Visite Fafe",
+        credit: "Fonte: Município de Fafe, Internet",
+        soon: "💛 Brevemente disponível.",
+        follow: "Siga a nossa página e descubra tudo o que aí vem!"
+    },
+    en: {
+        title: "The moment has arrived! ✨",
+        intro1: "We are proud to present <strong>Matriz Inn</strong> 🏡",
+        intro2: "A local accommodation in the center of Fafe, designed to welcome you with comfort, quality, and refinement.",
+        location: "Right in the heart of the city.",
+        apt1: "<i class='fas fa-home'></i> 1 T3 Apartment (for 6 people)",
+        apt2: "<i class='fas fa-home'></i> 1 T3 Apartment (for 6 people)",
+        stu1: "<i class='fas fa-bed'></i> 1 Studio (for 2 people)",
+        stu2: "<i class='fas fa-bed'></i> 1 Studio (for 2 people)",
+        visit: "Visit Fafe",
+        credit: "Source: Fafe Municipality, Internet",
+        soon: "💛 Coming soon.",
+        follow: "Follow our page and discover everything that is coming!"
+    },
+    es: {
+        title: "¡Llegó el momento! ✨",
+        intro1: "Con mucho orgullo les presentamos el <strong>Matriz Inn</strong> 🏡",
+        intro2: "Un alojamiento local en el centro de Fafe, hecho para recibir con confort, calidad y refinamiento.",
+        location: "En el corazón de la ciudad.",
+        apt1: "<i class='fas fa-home'></i> 1 Apartamento T3 (para 6 personas)",
+        apt2: "<i class='fas fa-home'></i> 1 Apartamento T3 (para 6 personas)",
+        stu1: "<i class='fas fa-bed'></i> 1 Estudio (para 2 personas)",
+        stu2: "<i class='fas fa-bed'></i> 1 Estudio (para 2 personas)",
+        visit: "Visita Fafe",
+        credit: "Fuente: Municipio de Fafe, Internet",
+        soon: "💛 Próximamente.",
+        follow: "¡Siga nuestra página y descubra todo lo que viene!"
+    },
+    fr: {
+        title: "Le moment est arrivé ! ✨",
+        intro1: "C'est avec une grande fierté que nous vous présentons le <strong>Matriz Inn</strong> 🏡",
+        intro2: "Un hébergement local au centre de Fafe, conçu pour vous accueillir avec confort, qualité et raffinement.",
+        location: "En plein cœur de la ville.",
+        apt1: "<i class='fas fa-home'></i> 1 Appartement T3 (pour 6 personnes)",
+        apt2: "<i class='fas fa-home'></i> 1 Appartement T3 (pour 6 personnes)",
+        stu1: "<i class='fas fa-bed'></i> 1 Studio (pour 2 personnes)",
+        stu2: "<i class='fas fa-bed'></i> 1 Studio (pour 2 personnes)",
+        visit: "Visitez Fafe",
+        credit: "Source : Municipalité de Fafe, Internet",
+        soon: "💛 Bientôt disponible.",
+        follow: "Suivez notre page et découvrez tout ce qui arrive !"
+    }
+};
+
+function changeLanguage(lang) {
+    // Muda o texto
+    document.getElementById('txt-title').innerHTML = translations[lang].title;
+    document.getElementById('txt-intro1').innerHTML = translations[lang].intro1;
+    document.getElementById('txt-intro2').innerText = translations[lang].intro2;
+    document.getElementById('txt-location').innerText = translations[lang].location;
+    document.getElementById('txt-apt1').innerHTML = translations[lang].apt1;
+    document.getElementById('txt-apt2').innerHTML = translations[lang].apt2;
+    document.getElementById('txt-stu1').innerHTML = translations[lang].stu1;
+    document.getElementById('txt-stu2').innerHTML = translations[lang].stu2;
+    document.getElementById('txt-visit').innerText = translations[lang].visit;
+    document.getElementById('txt-credit').innerText = translations[lang].credit;
+    document.getElementById('txt-soon').innerText = translations[lang].soon;
+    document.getElementById('txt-follow').innerText = translations[lang].follow;
+
+    // Muda a opacidade das bandeiras
+    let flags = document.querySelectorAll('.lang-flag');
+    flags.forEach(flag => flag.classList.remove('active'));
+    
+    // Encontra a bandeira clicada e ativa-a
+    let clickedFlag = document.querySelector(`.lang-flag[onclick="changeLanguage('${lang}')"]`);
+    if(clickedFlag) clickedFlag.classList.add('active');
+}
+
+/* ------------------ SLIDESHOW (MANTIDO IGUAL) ------------------ */
 let slideIndex = 1;
 let slideTimer;
 
