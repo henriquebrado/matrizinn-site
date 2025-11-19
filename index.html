@@ -12,8 +12,8 @@
 
     <style>
         :root {
-            --gold: #d4af37; /* Tom dourado semelhante à imagem */
-            --dark-grey: #4a4a4a; /* Cinzento escuro do fundo da imagem */
+            --gold: #d4af37; 
+            --dark-grey: #4a4a4a; 
             --light-grey: #f5f5f5;
         }
 
@@ -40,13 +40,14 @@
             text-align: center;
         }
 
-        /* --- ESTILO DO LOGO (ATUALIZADO) --- */
+        /* --- ESTILO DO LOGO (CORRIGIDO) --- */
         .logo-img {
-            max-width: 200px; /* Mais pequeno (era 300px) */
+            max-width: 220px; 
             width: 100%;
             height: auto;
             margin-bottom: 20px;
-            border-radius: 40%; /* Formato Oval/Circular */
+            border-radius: 15px; /* Cantos suaves (não corta o texto) */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         /* Tipografia */
@@ -148,8 +149,6 @@
         }
 
         /* --- Estilos do Slideshow --- */
-
-        /* Esconde as imagens por defeito */
         .mySlides {
             display: none;
             border-radius: 8px; 
@@ -160,7 +159,6 @@
             vertical-align: middle; 
         }
 
-        /* O container do slideshow */
         .slideshow-container {
             max-width: 600px; 
             position: relative;
@@ -169,7 +167,7 @@
             border-radius: 8px;
         }
 
-        /* Legenda da Fonte (NOVO) */
+        /* Legenda da Fonte */
         .photo-credit {
             color: #f2f2f2;
             font-size: 11px;
@@ -177,7 +175,7 @@
             position: absolute;
             bottom: 8px;
             right: 12px;
-            background-color: rgba(0, 0, 0, 0.6); /* Fundo preto transparente */
+            background-color: rgba(0, 0, 0, 0.6);
             border-radius: 4px;
             z-index: 10;
         }
@@ -199,7 +197,6 @@
             z-index: 15;
         }
 
-        /* Posição do botão "next" */
         .next {
             right: 0;
             border-radius: 3px 0 0 3px;
@@ -209,26 +206,22 @@
             border-radius: 0 3px 3px 0; 
         }
 
-        /* Efeito hover nos botões */
         .prev:hover, .next:hover {
             background-color: var(--gold); 
             color: white; 
         }
 
-        /* --- CORREÇÃO DAS BOLINHAS (FLEX WRAP) --- */
-        
-        /* Container das bolinhas para não ultrapassar a largura */
+        /* Container das bolinhas (Flex) */
         .dots-container {
             max-width: 600px; 
             margin: 0 auto;   
             display: flex;
-            flex-wrap: wrap;  /* Permite quebras de linha se não couberem */
+            flex-wrap: wrap;
             justify-content: center;
             gap: 6px;         
             padding: 0 10px;  
         }
 
-        /* Os pontinhos (mais pequenos: 8px) */
         .dot {
             cursor: pointer;
             height: 8px;      
@@ -243,7 +236,6 @@
             background-color: var(--gold); 
         }
 
-        /* Animação Fade */
         .fade {
             animation-name: fade;
             animation-duration: 1.5s;
@@ -281,112 +273,42 @@
         </div>
 
         <div class="slideshow-container">
-
-            <div class="mySlides fade">
-                <img src="imgs/fafea.jpg" alt="Matriz Inn - Foto " style="width:100%">
-            </div>
-            <div class="mySlides fade">
-                <img src="imgs/fafe1.jpg" alt="Matriz Inn - Foto 1" style="width:100%">
-            </div>
-            <div class="mySlides fade">
-                <img src="imgs/fafe2.jpg" alt="Matriz Inn - Foto 2" style="width:100%">
-            </div>
-            <div class="mySlides fade">
-                <img src="imgs/fafe3.jpg" alt="Matriz Inn - Foto 3" style="width:100%">
-            </div>
-            <div class="mySlides fade">
-                <img src="imgs/fafe4.jpg" alt="Matriz Inn - Foto 4" style="width:100%">
-            </div>
-            <div class="mySlides fade">
-                <img src="imgs/fafe5.jpg" alt="Matriz Inn - Foto 5" style="width:100%">
-            </div>
-            <div class="mySlides fade">
-                <img src="imgs/fafe6.jpg" alt="Matriz Inn - Foto 6" style="width:100%">
-            </div>
-            <div class="mySlides fade">
-                <img src="imgs/fafe7.jpg" alt="Matriz Inn - Foto 7" style="width:100%">
-            </div>
-            <div class="mySlides fade">
-                <img src="imgs/fafe8.jpg" alt="Matriz Inn - Foto 8" style="width:100%">
-            </div>
-            <div class="mySlides fade">
-                <img src="imgs/fafe9.jpg" alt="Matriz Inn - Foto 9" style="width:100%">
-            </div>
-            <div class="mySlides fade">
-                <img src="imgs/fafe10.jpg" alt="Matriz Inn - Foto 10" style="width:100%">
-            </div>
-            <div class="mySlides fade">
-                <img src="imgs/fafe11.jpg" alt="Matriz Inn - Foto 11" style="width:100%">
-            </div>
-            <div class="mySlides fade">
-                <img src="imgs/fafe12.jpg" alt="Matriz Inn - Foto 12" style="width:100%">
-            </div>
-            <div class="mySlides fade">
-                <img src="imgs/fafe13.jpg" alt="Matriz Inn - Foto 13" style="width:100%">
-            </div>
-             <div class="mySlides fade">
-                <img src="imgs/fafe14.jpg" alt="Matriz Inn - Foto 14" style="width:100%">
-            </div>
-            <div class="mySlides fade">
-                <img src="imgs/fafe15.jpg" alt="Matriz Inn - Foto 15" style="width:100%">
-            </div>
-            <div class="mySlides fade">
-                <img src="imgs/fafe16.jpg" alt="Matriz Inn - Foto 16" style="width:100%">
-            </div>
-            <div class="mySlides fade">
-                <img src="imgs/fafe17.jpg" alt="Matriz Inn - Foto 17" style="width:100%">
-            </div>
-            <div class="mySlides fade">
-                <img src="imgs/fafe18.jpg" alt="Matriz Inn - Foto 18" style="width:100%">
-            </div>
-            <div class="mySlides fade">
-                <img src="imgs/fafe19.jpg" alt="Matriz Inn - Foto 19" style="width:100%">
-            </div>
-            <div class="mySlides fade">
-                <img src="imgs/fafe20.jpg" alt="Matriz Inn - Foto 20" style="width:100%">
-            </div>
-            <div class="mySlides fade">
-                <img src="imgs/fafe21.jpg" alt="Matriz Inn - Foto 21" style="width:100%">
-            </div>
-            <div class="mySlides fade">
-                <img src="imgs/fafe22.jpg" alt="Matriz Inn - Foto 22" style="width:100%">
-            </div>
-            <div class="mySlides fade">
-                <img src="imgs/fafe23.jpg" alt="Matriz Inn - Foto 23" style="width:100%">
-            </div>
-            <div class="mySlides fade">
-                <img src="imgs/fafe24.jpg" alt="Matriz Inn - Foto 24" style="width:100%">
-            </div>
-            <div class="mySlides fade">
-                <img src="imgs/fafe25.jpg" alt="Matriz Inn - Foto 25" style="width:100%">
-            </div>
-            <div class="mySlides fade">
-                <img src="imgs/fafe26.jpg" alt="Matriz Inn - Foto 26" style="width:100%">
-            </div>
-               <div class="mySlides fade">
-                <img src="imgs/fafe27.jpg" alt="Matriz Inn - Foto 27" style="width:100%">
-            </div>
-               <div class="mySlides fade">
-                <img src="imgs/fafe28.jpg" alt="Matriz Inn - Foto 28" style="width:100%">
-            </div>
-               <div class="mySlides fade">
-                <img src="imgs/fafe29.jpg" alt="Matriz Inn - Foto 29" style="width:100%">
-            </div>
-               <div class="mySlides fade">
-                <img src="imgs/fafe30.jpg" alt="Matriz Inn - Foto 30" style="width:100%">
-            </div>
-               <div class="mySlides fade">
-                <img src="imgs/fafe31.jpg" alt="Matriz Inn - Foto 31" style="width:100%">
-            </div>
-               <div class="mySlides fade">
-                <img src="imgs/fafe32.jpg" alt="Matriz Inn - Foto 32" style="width:100%">
-            </div>
-               <div class="mySlides fade">
-                <img src="imgs/fafe33.jpg" alt="Matriz Inn - Foto 33" style="width:100%">
-            </div>
-                 <div class="mySlides fade">
-                <img src="imgs/fafe34.jpg" alt="Matriz Inn - Foto 34" style="width:100%">
-            </div>
+            
+            <div class="mySlides fade"><img src="imgs/fafea.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe1.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe2.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe3.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe4.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe5.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe6.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe7.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe8.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe9.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe10.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe11.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe12.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe13.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe14.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe15.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe16.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe17.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe18.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe19.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe20.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe21.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe22.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe23.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe24.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe25.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe26.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe27.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe28.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe29.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe30.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe31.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe32.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe33.jpg" style="width:100%"></div>
+            <div class="mySlides fade"><img src="imgs/fafe34.jpg" style="width:100%"></div>
              
             <div class="photo-credit">Fonte: Município de Fafe, Internet</div>
 
@@ -431,7 +353,7 @@
             <span class="dot" onclick="currentSlide(32)"></span>
             <span class="dot" onclick="currentSlide(33)"></span>
             <span class="dot" onclick="currentSlide(34)"></span>
-             <span class="dot" onclick="currentSlide(35)"></span>
+            <span class="dot" onclick="currentSlide(35)"></span>
         </div>
 
         <p class="highlight">💛 Brevemente disponível.</p>
@@ -458,54 +380,44 @@
 
 <script>
 let slideIndex = 1;
-let slideTimer; // Variável global para o temporizador
+let slideTimer;
 
-// Mostra o primeiro slide e inicia o slideshow
 showSlides(slideIndex);
 
-// Função para Próximo/Anterior (MANUAL)
 function plusSlides(n) {
-    clearTimeout(slideTimer); // Cancela o timer automático
+    clearTimeout(slideTimer);
     showSlides(slideIndex += n);
 }
 
-// Função para os pontinhos (MANUAL)
 function currentSlide(n) {
-    clearTimeout(slideTimer); // Cancela o timer automático
+    clearTimeout(slideTimer);
     showSlides(slideIndex = n);
 }
 
-// Função principal que MOSTRA o slide e REINICIA o timer
 function showSlides(n) {
     let i;
     let slides = document.getElementsByClassName("mySlides");
     let dots = document.getElementsByClassName("dot");
 
-    // Lógica de loop (se > max, volta ao 1; se < 1, vai para o max)
     if (n > slides.length) { slideIndex = 1 }
     if (n < 1) { slideIndex = slides.length }
 
-    // Esconde todos os slides
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
     
-    // Desativa todos os pontos
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
 
-    // Mostra o slide correto e ativa o ponto
     slides[slideIndex - 1].style.display = "block";
     dots[slideIndex - 1].className += " active";
 
-    // REINICIA O TIMER AUTOMÁTICO (a cada 4 segundos)
     slideTimer = setTimeout(autoSlide, 4000); 
 }
 
-// Função APENAS para o automático
 function autoSlide() {
-    showSlides(slideIndex += 1); // Avança 1
+    showSlides(slideIndex += 1); 
 }
 </script>
 </body>
