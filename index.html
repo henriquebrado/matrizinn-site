@@ -40,17 +40,14 @@
             text-align: center;
         }
 
+        /* --- ESTILO DO LOGO (AGORA MUITO MAIOR) --- */
         .logo-img {
-            max-width: 600px; /* Aumentei um pouco a largura máxima para dar mais destaque */
-            max-height: 120px; /* Defini uma altura máxima mais generosa */
-            width: 100%;
-            height: auto;     /* Garante que a proporção é mantida */
+            max-width: 500px; /* Aumentado para ocupar mais de metade do cartão */
+            width: 100%;      /* Responsivo: encolhe se o ecrã for pequeno */
+            height: auto;     /* Mantém a proporção original de 1600x608 */
             margin-bottom: 20px;
             border-radius: 15px; 
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            object-fit: contain; /* ESSENCIAL: Garante que o LOGO INTEIRO (e não só o texto) cabe na área sem ser cortado ou esmagado */
-            background-color: #4a4a4a; /* Adiciona um fundo cinzento, caso a imagem do logo não tenha (se tiver fundo transparente) */
-            padding: 10px 20px; /* Espaçamento interno para que o logo não toque nas bordas do "cartão" */
         }
 
         /* Tipografia */
@@ -65,7 +62,7 @@
         h2 {
             font-family: 'Playfair Display', serif;
             color: var(--gold);
-            font-size: 1.3rem;
+            font-size: 1.8rem;
             margin-top: 40px;
             margin-bottom: 15px;
         }
@@ -263,7 +260,7 @@
 <body>
 
     <div class="container">
-        <img src="logo1.jpg" alt="Logótipo Matriz Inn" class="logo-img">
+        <img src="logo.jpg" alt="Logótipo Matriz Inn" class="logo-img">
 
         <h1>Chegou o momento! ✨</h1>
 
@@ -284,7 +281,7 @@
             </ul>
         </div>
 
-        <h2>Visite Fafe:</h2>
+        <h2>Visite Fafe</h2>
 
         <div class="slideshow-container">
             
