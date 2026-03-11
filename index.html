@@ -402,6 +402,11 @@
         <p class="highlight" id="txt-soon">💛 Brevemente disponível.</p>
         <p id="txt-follow">Siga a nossa página e descubra tudo o que aí vem!</p>
 
+      <p style="margin-top: 25px;">
+    <span id="txt-bookings">Reservas a partir de 15 de Março para o email:</span><br>
+    <a href="mailto:matrizinn@gmail.com" class="highlight" style="text-decoration: none;">matrizinn@gmail.com</a>
+</p>
+
         <div class="social-icons">
             <a href="https://www.facebook.com/profile.php?id=61572360527091" target="_blank" class="social-btn" aria-label="Facebook">
                 <i class="fab fa-facebook-f"></i>
@@ -436,6 +441,8 @@ const translations = {
         visit: "Visite Fafe",
         credit: "Fonte: Município de Fafe, Internet",
         soon: "💛 Brevemente disponível.",
+        follow: "Siga a nossa página e descubra tudo o que aí vem!",
+        bookings: "Reservas a partir de 15 de Março para o email",
         follow: "Siga a nossa página e descubra tudo o que aí vem!"
     },
     en: {
@@ -450,6 +457,8 @@ const translations = {
         visit: "Visit Fafe",
         credit: "Source: Fafe Municipality, Internet",
         soon: "💛 Coming soon.",
+        follow: "Follow our page and discover everything that is coming!",
+            bookings: "Bookings from March 15th via email",
         follow: "Follow our page and discover everything that is coming!"
     },
     es: {
@@ -464,6 +473,8 @@ const translations = {
         visit: "Visita Fafe",
         credit: "Fuente: Municipio de Fafe, Internet",
         soon: "💛 Próximamente.",
+        follow: "¡Siga nuestra página y descubra todo lo que viene!",
+        bookings: "Reservas a partir del 15 de marzo por correo electrónico",
         follow: "¡Siga nuestra página y descubra todo lo que viene!"
     },
     fr: {
@@ -478,6 +489,8 @@ const translations = {
         visit: "Visitez Fafe",
         credit: "Source : Municipalité de Fafe, Internet",
         soon: "💛 Bientôt disponible.",
+        follow: "Suivez notre page et découvrez tout ce qui arrive !",
+        bookings: "Réservations à partir du 15 mars par e-mail",
         follow: "Suivez notre page et découvrez tout ce qui arrive !"
     }
 };
@@ -496,6 +509,7 @@ function changeLanguage(lang) {
     document.getElementById('txt-credit').innerText = translations[lang].credit;
     document.getElementById('txt-soon').innerText = translations[lang].soon;
     document.getElementById('txt-follow').innerText = translations[lang].follow;
+    document.getElementById('txt-bookings').innerText = translations[lang].bookings;
  
     // Muda a opacidade das bandeiras
     let flags = document.querySelectorAll('.lang-flag');
