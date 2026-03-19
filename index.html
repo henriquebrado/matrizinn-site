@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matriz Inn - Alojamento Local em Fafe</title>
-    <meta name="description" content="Matriz Inn - Um alojamento local no centro de Fafe, feito para receber com conforto, qualidade e requinte. Brevemente disponível.">
+    <meta name="description" content="Matriz Inn - Um alojamento local no centro de Fafe, feito para receber com conforto, qualidade e requinte.">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
@@ -38,13 +37,12 @@
             border-radius: 15px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             text-align: center;
-            position: relative; /* Para posicionar as bandeiras */
+            position: relative;
         }
 
-        /* --- ESTILO DAS BANDEIRAS (NOVO) --- */
         .lang-container {
             display: flex;
-            justify-content: center; /* Ou flex-end para ficar à direita */
+            justify-content: center;
             gap: 15px;
             margin-bottom: 30px;
         }
@@ -54,17 +52,16 @@
             height: auto;
             cursor: pointer;
             transition: transform 0.3s ease, opacity 0.3s;
-            opacity: 0.6; /* Um pouco transparente quando não selecionada */
+            opacity: 0.6;
             border-radius: 4px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .lang-flag:hover, .lang-flag.active {
             transform: scale(1.2);
-            opacity: 1; /* Totalmente visível */
+            opacity: 1;
         }
 
-        /* --- ESTILO DO LOGO --- */
         .logo-img {
             max-width: 500px; 
             width: 100%;      
@@ -74,7 +71,6 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        /* Tipografia */
         h1 {
             font-family: 'Playfair Display', serif;
             color: var(--gold);
@@ -82,13 +78,23 @@
             margin-bottom: 10px;
         }
 
-        /* Título Visite Fafe */
         h2 {
             font-family: 'Playfair Display', serif;
             color: var(--gold);
             font-size: 1.8rem;
             margin-top: 40px;
             margin-bottom: 15px;
+        }
+
+        h3.apt-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--dark-grey);
+            font-size: 1.4rem;
+            margin-top: 40px;
+            margin-bottom: 8px;
+            display: inline-block;
+            padding-bottom: 6px;
+            border-bottom: 2px solid var(--gold);
         }
 
         .highlight {
@@ -108,7 +114,6 @@
             color: var(--dark-grey);
         }
 
-        /* Lista de Alojamentos */
         .accommodations {
             background-color: #f9f9f9;
             padding: 20px;
@@ -135,7 +140,6 @@
             margin-right: 10px;
         }
 
-        /* Redes Sociais */
         .social-icons {
             margin-top: 30px;
             display: flex;
@@ -163,44 +167,40 @@
             transform: translateY(-3px);
         }
 
-        /* Hashtags */
         .hashtags {
             margin-top: 30px;
             color: #888;
             font-size: 0.9rem;
         }
 
-        /* Responsividade */
         @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-                margin: 20px;
-            }
-            h1 {
-                font-size: 1.8rem;
-            }
+            .container { padding: 20px; margin: 20px; }
+            h1 { font-size: 1.8rem; }
         }
 
-        /* --- Estilos do Slideshow --- */
-        .mySlides {
-            display: none;
-            border-radius: 8px; 
-        }
+        /* --- SLIDESHOW ALOJAMENTOS --- */
+        .ss-slide { display: none; border-radius: 8px; }
+        .ss-slide img { border-radius: 8px; vertical-align: middle; width: 100%; }
+        .ss-slide.fade { animation-name: fade; animation-duration: 1.5s; }
 
-        .mySlides img {
-            border-radius: 8px; 
-            vertical-align: middle; 
+        /* --- SLIDESHOW FAFE --- */
+        .mySlides { display: none; border-radius: 8px; }
+        .mySlides img { border-radius: 8px; vertical-align: middle; }
+        .mySlides.fade { animation-name: fade; animation-duration: 1.5s; }
+
+        @keyframes fade {
+            from { opacity: .4 }
+            to   { opacity: 1  }
         }
 
         .slideshow-container {
-            max-width: 600px; 
+            max-width: 600px;
             position: relative;
-            margin: 20px auto; 
+            margin: 10px auto 0;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             border-radius: 8px;
         }
 
-        /* Legenda da Fonte */
         .photo-credit {
             color: #f2f2f2;
             font-size: 11px;
@@ -208,12 +208,11 @@
             position: absolute;
             bottom: 8px;
             right: 12px;
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: rgba(0,0,0,0.6);
             border-radius: 4px;
             z-index: 10;
         }
 
-        /* Botões Próximo & Anterior */
         .prev, .next {
             cursor: pointer;
             position: absolute;
@@ -230,204 +229,288 @@
             z-index: 15;
         }
 
-        .next {
-            right: 0;
-            border-radius: 3px 0 0 3px;
-        }
-        .prev {
-            left: 0; 
-            border-radius: 0 3px 3px 0; 
-        }
+        .next { right: 0; border-radius: 3px 0 0 3px; }
+        .prev { left: 0;  border-radius: 0 3px 3px 0; }
 
         .prev:hover, .next:hover {
-            background-color: var(--gold); 
-            color: white; 
+            background-color: var(--gold);
+            color: white;
         }
 
-        /* Container das bolinhas (Flex) */
         .dots-container {
-            max-width: 600px; 
-            margin: 0 auto;   
+            max-width: 600px;
+            margin: 8px auto 0;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 6px;         
-            padding: 0 10px;  
+            gap: 6px;
+            padding: 0 10px;
         }
 
         .dot {
             cursor: pointer;
-            height: 8px;      
-            width: 8px;      
+            height: 8px;
+            width: 8px;
             background-color: #bbb;
             border-radius: 50%;
             display: inline-block;
             transition: background-color 0.6s ease;
         }
 
-        .active, .dot:hover {
-            background-color: var(--gold); 
+        .dot.active, .dot:hover {
+            background-color: var(--gold);
         }
-
-        .fade {
-            animation-name: fade;
-            animation-duration: 1.5s;
-        }
-
-        @keyframes fade {
-            from {opacity: .4}
-            to {opacity: 1}
-        }
-
     </style>
 </head>
 <body>
 
-    <div class="container">
-        
-        <div class="lang-container">
-            <img src="https://flagcdn.com/w80/pt.png" class="lang-flag active" onclick="changeLanguage('pt')" alt="Português" title="Português">
-            <img src="https://flagcdn.com/w80/gb.png" class="lang-flag" onclick="changeLanguage('en')" alt="English" title="English">
-            <img src="https://flagcdn.com/w80/es.png" class="lang-flag" onclick="changeLanguage('es')" alt="Español" title="Español">
-            <img src="https://flagcdn.com/w80/fr.png" class="lang-flag" onclick="changeLanguage('fr')" alt="Français" title="Français">
-        </div>
-
-        <img src="logo.jpg" alt="Logótipo Matriz Inn" class="logo-img">
-
-        <h1 id="txt-title">Chegou o momento! ✨</h1>
-
-        <p id="txt-intro1">É com muito orgulho que vos apresentamos o <strong>Matriz Inn</strong> 🏡</p>
-        
-        <p id="txt-intro2">Um alojamento local no centro de Fafe, feito para receber com conforto, qualidade e requinte.</p>
-
-        <div class="location">
-            <i class="fas fa-map-marker-alt" style="color: var(--gold);"></i> <span id="txt-location">Mesmo no coração da cidade.</span>
-        </div>
-
-        <div class="accommodations">
-            <ul>
-                <li id="txt-apt1"><i class="fas fa-home"></i> 1 Apartamento T3 (para 6 pessoas)</li>
-                <li id="txt-apt2"><i class="fas fa-home"></i> 1 Apartamento T3 (para 6 pessoas)</li>
-                <li id="txt-stu1"><i class="fas fa-bed"></i> 1 Estúdio (para 2 pessoas)</li>
-                <li id="txt-stu2"><i class="fas fa-bed"></i> 1 Estúdio (para 2 pessoas)</li>
-            </ul>
-        </div>
-
-        <h2 id="txt-visit">Visite Fafe</h2>
-
-        <div class="slideshow-container">
-            
-            <div class="mySlides fade"><img src="imgs/fafea.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe1.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe2.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe3.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe4.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe5.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe6.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe7.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe8.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe9.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe10.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe11.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe12.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe13.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe14.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe15.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe16.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe17.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe18.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe19.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe20.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe21.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe22.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe23.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe24.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe25.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe26.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe27.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe28.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe29.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe30.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe31.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe32.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe33.jpg" style="width:100%"></div>
-            <div class="mySlides fade"><img src="imgs/fafe34.jpg" style="width:100%"></div>
-             
-            <div class="photo-credit" id="txt-credit">Fonte: Município de Fafe, Internet</div>
-
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-        </div>
-        <br>
-
-        <div class="dots-container">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-            <span class="dot" onclick="currentSlide(4)"></span>
-            <span class="dot" onclick="currentSlide(5)"></span>
-            <span class="dot" onclick="currentSlide(6)"></span>
-            <span class="dot" onclick="currentSlide(7)"></span>
-            <span class="dot" onclick="currentSlide(8)"></span>
-            <span class="dot" onclick="currentSlide(9)"></span>
-            <span class="dot" onclick="currentSlide(10)"></span>
-            <span class="dot" onclick="currentSlide(11)"></span>
-            <span class="dot" onclick="currentSlide(12)"></span>
-            <span class="dot" onclick="currentSlide(13)"></span>
-            <span class="dot" onclick="currentSlide(14)"></span>
-            <span class="dot" onclick="currentSlide(15)"></span>
-            <span class="dot" onclick="currentSlide(16)"></span>
-            <span class="dot" onclick="currentSlide(17)"></span>
-            <span class="dot" onclick="currentSlide(18)"></span>
-            <span class="dot" onclick="currentSlide(19)"></span>
-            <span class="dot" onclick="currentSlide(20)"></span>
-            <span class="dot" onclick="currentSlide(21)"></span>
-            <span class="dot" onclick="currentSlide(22)"></span>
-            <span class="dot" onclick="currentSlide(23)"></span>
-            <span class="dot" onclick="currentSlide(24)"></span>
-            <span class="dot" onclick="currentSlide(25)"></span>
-            <span class="dot" onclick="currentSlide(26)"></span>
-            <span class="dot" onclick="currentSlide(27)"></span>
-            <span class="dot" onclick="currentSlide(28)"></span>
-            <span class="dot" onclick="currentSlide(29)"></span>
-            <span class="dot" onclick="currentSlide(30)"></span>
-            <span class="dot" onclick="currentSlide(31)"></span>
-            <span class="dot" onclick="currentSlide(32)"></span>
-            <span class="dot" onclick="currentSlide(33)"></span>
-            <span class="dot" onclick="currentSlide(34)"></span>
-            <span class="dot" onclick="currentSlide(35)"></span>
-        </div>
-
-        <p class="highlight" id="txt-soon">💛 Brevemente disponível.</p>
-        <p id="txt-follow">Siga a nossa página e descubra tudo o que aí vem!</p>
-
-      <p style="margin-top: 25px;">
-    <span id="txt-bookings">Reservas a partir de 15 de Março para o email:</span><br>
-    <a href="mailto:matrizinn@gmail.com" class="highlight" style="text-decoration: none;">matrizinn@gmail.com</a>
-</p>
-
-        <div class="social-icons">
-            <a href="https://www.facebook.com/profile.php?id=61572360527091" target="_blank" class="social-btn" aria-label="Facebook">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            
-            <a href="https://www.instagram.com/matriz_inn" target="_blank" class="social-btn" aria-label="Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-
-            <a href="mailto:matrizinn@gmail.com" class="social-btn" aria-label="Email">
-                <i class="fas fa-envelope"></i>
-            </a>
-        </div>
-
-        <div class="hashtags">
-            #MatrizInn #AlojamentoLocal #Fafe #StayWithUs #Brevemente
-        </div>
+<div class="container">
+    
+    <div class="lang-container">
+        <img src="https://flagcdn.com/w80/pt.png" class="lang-flag active" onclick="changeLanguage('pt')" alt="Português" title="Português">
+        <img src="https://flagcdn.com/w80/gb.png" class="lang-flag" onclick="changeLanguage('en')" alt="English" title="English">
+        <img src="https://flagcdn.com/w80/es.png" class="lang-flag" onclick="changeLanguage('es')" alt="Español" title="Español">
+        <img src="https://flagcdn.com/w80/fr.png" class="lang-flag" onclick="changeLanguage('fr')" alt="Français" title="Français">
     </div>
 
+    <img src="logo.jpg" alt="Logótipo Matriz Inn" class="logo-img">
+
+    <h1 id="txt-title">Chegou o momento! ✨</h1>
+
+    <p id="txt-intro1">É com muito orgulho que vos apresentamos o <strong>Matriz Inn</strong> 🏡</p>
+    <p id="txt-intro2">Um alojamento local no centro de Fafe, feito para receber com conforto, qualidade e requinte.</p>
+
+    <div class="location">
+        <i class="fas fa-map-marker-alt" style="color: var(--gold);"></i> <span id="txt-location">Mesmo no coração da cidade.</span>
+    </div>
+
+    <div class="accommodations">
+        <ul>
+            <li id="txt-apt1"><i class="fas fa-home"></i> 1 Apartamento T3 (para 6 pessoas)</li>
+            <li id="txt-apt2"><i class="fas fa-home"></i> 1 Apartamento T3 (para 6 pessoas)</li>
+            <li id="txt-stu1"><i class="fas fa-bed"></i> 1 Estúdio (para 2 pessoas)</li>
+            <li id="txt-stu2"><i class="fas fa-bed"></i> 1 Estúdio (para 2 pessoas)</li>
+        </ul>
+    </div>
+
+    <!-- ===== SLIDESHOW 1: Matriz Inn I - 3 dto ===== -->
+    <h3 class="apt-title">Matriz Inn I – 3.º dto</h3>
+    <div class="slideshow-container">
+        <div class="ss-slide fade" data-ss="1"><img src="imgs/Matriz Inn I - 3 dto/1P6A0589.jpg" alt="Matriz Inn I"></div>
+        <div class="ss-slide fade" data-ss="1"><img src="imgs/Matriz Inn I - 3 dto/1P6A0597.jpg" alt="Matriz Inn I"></div>
+        <div class="ss-slide fade" data-ss="1"><img src="imgs/Matriz Inn I - 3 dto/1P6A0602.jpg" alt="Matriz Inn I"></div>
+        <div class="ss-slide fade" data-ss="1"><img src="imgs/Matriz Inn I - 3 dto/1P6A0604.jpg" alt="Matriz Inn I"></div>
+        <div class="ss-slide fade" data-ss="1"><img src="imgs/Matriz Inn I - 3 dto/1P6A0606.jpg" alt="Matriz Inn I"></div>
+        <div class="ss-slide fade" data-ss="1"><img src="imgs/Matriz Inn I - 3 dto/1P6A0611.jpg" alt="Matriz Inn I"></div>
+        <div class="ss-slide fade" data-ss="1"><img src="imgs/Matriz Inn I - 3 dto/1P6A0617.jpg" alt="Matriz Inn I"></div>
+        <div class="ss-slide fade" data-ss="1"><img src="imgs/Matriz Inn I - 3 dto/1P6A0620.jpg" alt="Matriz Inn I"></div>
+        <div class="ss-slide fade" data-ss="1"><img src="imgs/Matriz Inn I - 3 dto/1P6A0622.jpg" alt="Matriz Inn I"></div>
+        <div class="ss-slide fade" data-ss="1"><img src="imgs/Matriz Inn I - 3 dto/1P6A0625.jpg" alt="Matriz Inn I"></div>
+        <div class="ss-slide fade" data-ss="1"><img src="imgs/Matriz Inn I - 3 dto/1P6A0627.jpg" alt="Matriz Inn I"></div>
+        <div class="ss-slide fade" data-ss="1"><img src="imgs/Matriz Inn I - 3 dto/1P6A0636.jpg" alt="Matriz Inn I"></div>
+        <div class="ss-slide fade" data-ss="1"><img src="imgs/Matriz Inn I - 3 dto/1P6A0638.jpg" alt="Matriz Inn I"></div>
+        <div class="ss-slide fade" data-ss="1"><img src="imgs/Matriz Inn I - 3 dto/1P6A0643.jpg" alt="Matriz Inn I"></div>
+        <div class="ss-slide fade" data-ss="1"><img src="imgs/Matriz Inn I - 3 dto/1P6A0647.jpg" alt="Matriz Inn I"></div>
+        <div class="ss-slide fade" data-ss="1"><img src="imgs/Matriz Inn I - 3 dto/1P6A0648.jpg" alt="Matriz Inn I"></div>
+        <div class="ss-slide fade" data-ss="1"><img src="imgs/Matriz Inn I - 3 dto/1P6A0652.jpg" alt="Matriz Inn I"></div>
+        <div class="ss-slide fade" data-ss="1"><img src="imgs/Matriz Inn I - 3 dto/1P6A0659.jpg" alt="Matriz Inn I"></div>
+        <div class="ss-slide fade" data-ss="1"><img src="imgs/Matriz Inn I - 3 dto/1P6A1172.jpg" alt="Matriz Inn I"></div>
+        <div class="ss-slide fade" data-ss="1"><img src="imgs/Matriz Inn I - 3 dto/DSC_3275.jpg" alt="Matriz Inn I"></div>
+        <div class="ss-slide fade" data-ss="1"><img src="imgs/Matriz Inn I - 3 dto/DSC_3290.jpg" alt="Matriz Inn I"></div>
+        <div class="ss-slide fade" data-ss="1"><img src="imgs/Matriz Inn I - 3 dto/DSC_3314.jpg" alt="Matriz Inn I"></div>
+        <div class="ss-slide fade" data-ss="1"><img src="imgs/Matriz Inn I - 3 dto/DSC_3327.jpg" alt="Matriz Inn I"></div>
+        <div class="ss-slide fade" data-ss="1"><img src="imgs/Matriz Inn I - 3 dto/DSC_3335.jpg" alt="Matriz Inn I"></div>
+        <div class="ss-slide fade" data-ss="1"><img src="imgs/Matriz Inn I - 3 dto/DSC_3344.jpg" alt="Matriz Inn I"></div>
+        <a class="prev" onclick="plusSS(1,-1)">&#10094;</a>
+        <a class="next" onclick="plusSS(1,1)">&#10095;</a>
+    </div>
+    <div class="dots-container" id="ss1-dots"></div>
+
+    <!-- ===== SLIDESHOW 2: Matriz Inn III - 1 dto frt ===== -->
+    <h3 class="apt-title">Matriz Inn III – 1.º dto frt</h3>
+    <div class="slideshow-container">
+        <div class="ss-slide fade" data-ss="2"><img src="imgs/Matriz Inn III - 1 dto frt/1P6A0908.jpg" alt="Matriz Inn III"></div>
+        <div class="ss-slide fade" data-ss="2"><img src="imgs/Matriz Inn III - 1 dto frt/1P6A0918.jpg" alt="Matriz Inn III"></div>
+        <div class="ss-slide fade" data-ss="2"><img src="imgs/Matriz Inn III - 1 dto frt/1P6A0928.jpg" alt="Matriz Inn III"></div>
+        <div class="ss-slide fade" data-ss="2"><img src="imgs/Matriz Inn III - 1 dto frt/1P6A0946.jpg" alt="Matriz Inn III"></div>
+        <div class="ss-slide fade" data-ss="2"><img src="imgs/Matriz Inn III - 1 dto frt/1P6A0956.jpg" alt="Matriz Inn III"></div>
+        <div class="ss-slide fade" data-ss="2"><img src="imgs/Matriz Inn III - 1 dto frt/1P6A0968.jpg" alt="Matriz Inn III"></div>
+        <div class="ss-slide fade" data-ss="2"><img src="imgs/Matriz Inn III - 1 dto frt/1P6A0983.jpg" alt="Matriz Inn III"></div>
+        <div class="ss-slide fade" data-ss="2"><img src="imgs/Matriz Inn III - 1 dto frt/1P6A0986.jpg" alt="Matriz Inn III"></div>
+        <div class="ss-slide fade" data-ss="2"><img src="imgs/Matriz Inn III - 1 dto frt/1P6A1008.jpg" alt="Matriz Inn III"></div>
+        <div class="ss-slide fade" data-ss="2"><img src="imgs/Matriz Inn III - 1 dto frt/1P6A1010.jpg" alt="Matriz Inn III"></div>
+        <div class="ss-slide fade" data-ss="2"><img src="imgs/Matriz Inn III - 1 dto frt/1P6A1020.jpg" alt="Matriz Inn III"></div>
+        <div class="ss-slide fade" data-ss="2"><img src="imgs/Matriz Inn III - 1 dto frt/1P6A1043.jpg" alt="Matriz Inn III"></div>
+        <div class="ss-slide fade" data-ss="2"><img src="imgs/Matriz Inn III - 1 dto frt/1P6A1049.jpg" alt="Matriz Inn III"></div>
+        <div class="ss-slide fade" data-ss="2"><img src="imgs/Matriz Inn III - 1 dto frt/1P6A1073.jpg" alt="Matriz Inn III"></div>
+        <div class="ss-slide fade" data-ss="2"><img src="imgs/Matriz Inn III - 1 dto frt/1P6A1087.jpg" alt="Matriz Inn III"></div>
+        <div class="ss-slide fade" data-ss="2"><img src="imgs/Matriz Inn III - 1 dto frt/1P6A1089.jpg" alt="Matriz Inn III"></div>
+        <div class="ss-slide fade" data-ss="2"><img src="imgs/Matriz Inn III - 1 dto frt/1P6A1111.jpg" alt="Matriz Inn III"></div>
+        <div class="ss-slide fade" data-ss="2"><img src="imgs/Matriz Inn III - 1 dto frt/1P6A1137.jpg" alt="Matriz Inn III"></div>
+        <div class="ss-slide fade" data-ss="2"><img src="imgs/Matriz Inn III - 1 dto frt/DSC_3471.jpg" alt="Matriz Inn III"></div>
+        <div class="ss-slide fade" data-ss="2"><img src="imgs/Matriz Inn III - 1 dto frt/DSC_3479.jpg" alt="Matriz Inn III"></div>
+        <div class="ss-slide fade" data-ss="2"><img src="imgs/Matriz Inn III - 1 dto frt/DSC_3498.jpg" alt="Matriz Inn III"></div>
+        <div class="ss-slide fade" data-ss="2"><img src="imgs/Matriz Inn III - 1 dto frt/DSC_3505.jpg" alt="Matriz Inn III"></div>
+        <div class="ss-slide fade" data-ss="2"><img src="imgs/Matriz Inn III - 1 dto frt/DSC_3509.jpg" alt="Matriz Inn III"></div>
+        <div class="ss-slide fade" data-ss="2"><img src="imgs/Matriz Inn III - 1 dto frt/DSC_3516.jpg" alt="Matriz Inn III"></div>
+        <div class="ss-slide fade" data-ss="2"><img src="imgs/Matriz Inn III - 1 dto frt/DSC_3521.jpg" alt="Matriz Inn III"></div>
+        <div class="ss-slide fade" data-ss="2"><img src="imgs/Matriz Inn III - 1 dto frt/DSC_3563.jpg" alt="Matriz Inn III"></div>
+        <div class="ss-slide fade" data-ss="2"><img src="imgs/Matriz Inn III - 1 dto frt/DSC_3574.jpg" alt="Matriz Inn III"></div>
+        <a class="prev" onclick="plusSS(2,-1)">&#10094;</a>
+        <a class="next" onclick="plusSS(2,1)">&#10095;</a>
+    </div>
+    <div class="dots-container" id="ss2-dots"></div>
+
+    <!-- ===== SLIDESHOW 3: Matriz Inn IV - 2.º dto frt ===== -->
+    <h3 class="apt-title">Matriz Inn IV – 2.º dto frt</h3>
+    <div class="slideshow-container">
+        <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/1P6A0622.jpg" alt="Matriz Inn IV"></div>
+        <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/1P6A0674.jpg" alt="Matriz Inn IV"></div>
+        <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/1P6A0689.jpg" alt="Matriz Inn IV"></div>
+        <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/1P6A0702.jpg" alt="Matriz Inn IV"></div>
+        <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/1P6A0717.jpg" alt="Matriz Inn IV"></div>
+        <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/1P6A0725.jpg" alt="Matriz Inn IV"></div>
+        <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/1P6A0728.jpg" alt="Matriz Inn IV"></div>
+        <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/1P6A0737.jpg" alt="Matriz Inn IV"></div>
+        <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/1P6A0741.jpg" alt="Matriz Inn IV"></div>
+        <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/1P6A0744.jpg" alt="Matriz Inn IV"></div>
+        <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/1P6A0747.jpg" alt="Matriz Inn IV"></div>
+        <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/1P6A0750.jpg" alt="Matriz Inn IV"></div>
+        <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/1P6A0768.jpg" alt="Matriz Inn IV"></div>
+        <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/1P6A0770.jpg" alt="Matriz Inn IV"></div>
+        <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/1P6A0777.jpg" alt="Matriz Inn IV"></div>
+        <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/1P6A0790.jpg" alt="Matriz Inn IV"></div>
+        <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/1P6A0811.jpg" alt="Matriz Inn IV"></div>
+        <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/1P6A0815.jpg" alt="Matriz Inn IV"></div>
+        <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/1P6A0854.jpg" alt="Matriz Inn IV"></div>
+        <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/1P6A0864.jpg" alt="Matriz Inn IV"></div>
+        <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/1P6A1146.jpg" alt="Matriz Inn IV"></div>
+        <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/1P6A1154.jpg" alt="Matriz Inn IV"></div>
+        <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/DSC_3356.jpg" alt="Matriz Inn IV"></div>
+        <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/DSC_3362 - Cópia.jpg" alt="Matriz Inn IV"></div>
+        <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/DSC_3362.jpg" alt="Matriz Inn IV"></div>
+        <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/DSC_3372.jpg" alt="Matriz Inn IV"></div>
+        <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/DSC_3406.jpg" alt="Matriz Inn IV"></div>
+        <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/DSC_3412.jpg" alt="Matriz Inn IV"></div>
+        <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/DSC_3437.jpg" alt="Matriz Inn IV"></div>
+        <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/DSC_3453.jpg" alt="Matriz Inn IV"></div>
+        <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/FSC_3562 (1).jpg" alt="Matriz Inn IV"></div>
+        <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/FSC_3562 (2).jpg" alt="Matriz Inn IV"></div>
+        <a class="prev" onclick="plusSS(3,-1)">&#10094;</a>
+        <a class="next" onclick="plusSS(3,1)">&#10095;</a>
+    </div>
+    <div class="dots-container" id="ss3-dots"></div>
+
+    <!-- ===== SLIDESHOW FAFE (original) ===== -->
+    <h2 id="txt-visit">Visite Fafe</h2>
+
+    <div class="slideshow-container">
+        <div class="mySlides fade"><img src="imgs/fafea.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe1.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe2.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe3.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe4.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe5.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe6.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe7.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe8.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe9.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe10.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe11.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe12.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe13.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe14.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe15.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe16.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe17.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe18.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe19.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe20.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe21.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe22.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe23.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe24.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe25.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe26.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe27.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe28.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe29.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe30.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe31.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe32.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe33.jpg" style="width:100%"></div>
+        <div class="mySlides fade"><img src="imgs/fafe34.jpg" style="width:100%"></div>
+        <div class="photo-credit" id="txt-credit">Fonte: Município de Fafe, Internet</div>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+    <div class="dots-container" id="fafe-dots">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+        <span class="dot" onclick="currentSlide(6)"></span>
+        <span class="dot" onclick="currentSlide(7)"></span>
+        <span class="dot" onclick="currentSlide(8)"></span>
+        <span class="dot" onclick="currentSlide(9)"></span>
+        <span class="dot" onclick="currentSlide(10)"></span>
+        <span class="dot" onclick="currentSlide(11)"></span>
+        <span class="dot" onclick="currentSlide(12)"></span>
+        <span class="dot" onclick="currentSlide(13)"></span>
+        <span class="dot" onclick="currentSlide(14)"></span>
+        <span class="dot" onclick="currentSlide(15)"></span>
+        <span class="dot" onclick="currentSlide(16)"></span>
+        <span class="dot" onclick="currentSlide(17)"></span>
+        <span class="dot" onclick="currentSlide(18)"></span>
+        <span class="dot" onclick="currentSlide(19)"></span>
+        <span class="dot" onclick="currentSlide(20)"></span>
+        <span class="dot" onclick="currentSlide(21)"></span>
+        <span class="dot" onclick="currentSlide(22)"></span>
+        <span class="dot" onclick="currentSlide(23)"></span>
+        <span class="dot" onclick="currentSlide(24)"></span>
+        <span class="dot" onclick="currentSlide(25)"></span>
+        <span class="dot" onclick="currentSlide(26)"></span>
+        <span class="dot" onclick="currentSlide(27)"></span>
+        <span class="dot" onclick="currentSlide(28)"></span>
+        <span class="dot" onclick="currentSlide(29)"></span>
+        <span class="dot" onclick="currentSlide(30)"></span>
+        <span class="dot" onclick="currentSlide(31)"></span>
+        <span class="dot" onclick="currentSlide(32)"></span>
+        <span class="dot" onclick="currentSlide(33)"></span>
+        <span class="dot" onclick="currentSlide(34)"></span>
+        <span class="dot" onclick="currentSlide(35)"></span>
+    </div>
+
+    <p id="txt-follow">Siga a nossa página e descubra tudo o que aí vem!</p>
+
+    <p style="margin-top: 25px;">
+        <span id="txt-bookings">Reservas a partir de 15 de Março para o email:</span><br>
+        <a href="mailto:matrizinn@gmail.com" class="highlight" style="text-decoration: none;">matrizinn@gmail.com</a>
+    </p>
+
+    <div class="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=61572360527091" target="_blank" class="social-btn" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/matriz_inn" target="_blank" class="social-btn" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="mailto:matrizinn@gmail.com" class="social-btn" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+        </a>
+    </div>
+
+    <div class="hashtags">
+        #MatrizInn #AlojamentoLocal #Fafe #StayWithUs
+    </div>
+</div>
+
 <script>
-/* ------------------ TRADUÇÕES ------------------ */
+/* =====================================================
+   TRADUÇÕES
+===================================================== */
 const translations = {
     pt: {
         title: "Chegou o momento! ✨",
@@ -440,10 +523,8 @@ const translations = {
         stu2: "<i class='fas fa-bed'></i> 1 Estúdio (para 2 pessoas)",
         visit: "Visite Fafe",
         credit: "Fonte: Município de Fafe, Internet",
-        soon: "💛 Brevemente disponível.",
         follow: "Siga a nossa página e descubra tudo o que aí vem!",
-        bookings: "Reservas a partir de 15 de Março para o email",
-        follow: "Siga a nossa página e descubra tudo o que aí vem!"
+        bookings: "Reservas a partir de 15 de Março para o email:"
     },
     en: {
         title: "The moment has arrived! ✨",
@@ -456,10 +537,8 @@ const translations = {
         stu2: "<i class='fas fa-bed'></i> 1 Studio (for 2 people)",
         visit: "Visit Fafe",
         credit: "Source: Fafe Municipality, Internet",
-        soon: "💛 Coming soon.",
         follow: "Follow our page and discover everything that is coming!",
-            bookings: "Bookings from March 15th via email",
-        follow: "Follow our page and discover everything that is coming!"
+        bookings: "Bookings from March 15th via email:"
     },
     es: {
         title: "¡Llegó el momento! ✨",
@@ -472,10 +551,8 @@ const translations = {
         stu2: "<i class='fas fa-bed'></i> 1 Estudio (para 2 personas)",
         visit: "Visita Fafe",
         credit: "Fuente: Municipio de Fafe, Internet",
-        soon: "💛 Próximamente.",
         follow: "¡Siga nuestra página y descubra todo lo que viene!",
-        bookings: "Reservas a partir del 15 de marzo por correo electrónico",
-        follow: "¡Siga nuestra página y descubra todo lo que viene!"
+        bookings: "Reservas a partir del 15 de marzo por correo electrónico:"
     },
     fr: {
         title: "Le moment est arrivé ! ✨",
@@ -488,42 +565,81 @@ const translations = {
         stu2: "<i class='fas fa-bed'></i> 1 Studio (pour 2 personnes)",
         visit: "Visitez Fafe",
         credit: "Source : Municipalité de Fafe, Internet",
-        soon: "💛 Bientôt disponible.",
         follow: "Suivez notre page et découvrez tout ce qui arrive !",
-        bookings: "Réservations à partir du 15 mars par e-mail",
-        follow: "Suivez notre page et découvrez tout ce qui arrive !"
+        bookings: "Réservations à partir du 15 mars par e-mail :"
     }
 };
 
 function changeLanguage(lang) {
-    // Muda o texto
-    document.getElementById('txt-title').innerHTML = translations[lang].title;
-    document.getElementById('txt-intro1').innerHTML = translations[lang].intro1;
-    document.getElementById('txt-intro2').innerText = translations[lang].intro2;
+    document.getElementById('txt-title').innerHTML    = translations[lang].title;
+    document.getElementById('txt-intro1').innerHTML   = translations[lang].intro1;
+    document.getElementById('txt-intro2').innerText   = translations[lang].intro2;
     document.getElementById('txt-location').innerText = translations[lang].location;
-    document.getElementById('txt-apt1').innerHTML = translations[lang].apt1;
-    document.getElementById('txt-apt2').innerHTML = translations[lang].apt2;
-    document.getElementById('txt-stu1').innerHTML = translations[lang].stu1;
-    document.getElementById('txt-stu2').innerHTML = translations[lang].stu2;
-    document.getElementById('txt-visit').innerText = translations[lang].visit;
-    document.getElementById('txt-credit').innerText = translations[lang].credit;
-    document.getElementById('txt-soon').innerText = translations[lang].soon;
-    document.getElementById('txt-follow').innerText = translations[lang].follow;
+    document.getElementById('txt-apt1').innerHTML     = translations[lang].apt1;
+    document.getElementById('txt-apt2').innerHTML     = translations[lang].apt2;
+    document.getElementById('txt-stu1').innerHTML     = translations[lang].stu1;
+    document.getElementById('txt-stu2').innerHTML     = translations[lang].stu2;
+    document.getElementById('txt-visit').innerText    = translations[lang].visit;
+    document.getElementById('txt-credit').innerText   = translations[lang].credit;
+    document.getElementById('txt-follow').innerText   = translations[lang].follow;
     document.getElementById('txt-bookings').innerText = translations[lang].bookings;
- 
-    // Muda a opacidade das bandeiras
-    let flags = document.querySelectorAll('.lang-flag');
-    flags.forEach(flag => flag.classList.remove('active'));
-    
-    // Encontra a bandeira clicada e ativa-a
-    let clickedFlag = document.querySelector(`.lang-flag[onclick="changeLanguage('${lang}')"]`);
-    if(clickedFlag) clickedFlag.classList.add('active');
+
+    document.querySelectorAll('.lang-flag').forEach(f => f.classList.remove('active'));
+    const clicked = document.querySelector(`.lang-flag[onclick="changeLanguage('${lang}')"]`);
+    if (clicked) clicked.classList.add('active');
 }
 
-/* ------------------ SLIDESHOW (MANTIDO IGUAL) ------------------ */
+/* =====================================================
+   SLIDESHOWS DOS ALOJAMENTOS (1, 2, 3)
+===================================================== */
+const ssState = {
+    1: { index: 1, timer: null },
+    2: { index: 1, timer: null },
+    3: { index: 1, timer: null }
+};
+
+function initSS(id) {
+    const slides = document.querySelectorAll(`.ss-slide[data-ss="${id}"]`);
+    const dotsContainer = document.getElementById(`ss${id}-dots`);
+    slides.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.className = 'dot';
+        dot.onclick = () => { clearTimeout(ssState[id].timer); showSS(id, i + 1); };
+        dotsContainer.appendChild(dot);
+    });
+    showSS(id, 1);
+}
+
+function showSS(id, n) {
+    const slides = document.querySelectorAll(`.ss-slide[data-ss="${id}"]`);
+    const dots   = document.querySelectorAll(`#ss${id}-dots .dot`);
+
+    if (n > slides.length) ssState[id].index = 1;
+    else if (n < 1)        ssState[id].index = slides.length;
+    else                   ssState[id].index = n;
+
+    slides.forEach(s => s.style.display = 'none');
+    dots.forEach(d => d.classList.remove('active'));
+    slides[ssState[id].index - 1].style.display = 'block';
+    dots[ssState[id].index - 1].classList.add('active');
+
+    ssState[id].timer = setTimeout(() => showSS(id, ssState[id].index + 1), 4000);
+}
+
+function plusSS(id, n) {
+    clearTimeout(ssState[id].timer);
+    showSS(id, ssState[id].index + n);
+}
+
+initSS(1);
+initSS(2);
+initSS(3);
+
+/* =====================================================
+   SLIDESHOW FAFE (original)
+===================================================== */
 let slideIndex = 1;
 let slideTimer;
-
 showSlides(slideIndex);
 
 function plusSlides(n) {
@@ -537,29 +653,19 @@ function currentSlide(n) {
 }
 
 function showSlides(n) {
-    let i;
-    let slides = document.getElementsByClassName("mySlides");
-    let dots = document.getElementsByClassName("dot");
+    const slides  = document.getElementsByClassName("mySlides");
+    const dots    = document.querySelectorAll('#fafe-dots .dot');
 
-    if (n > slides.length) { slideIndex = 1 }
-    if (n < 1) { slideIndex = slides.length }
+    if (n > slides.length) slideIndex = 1;
+    if (n < 1) slideIndex = slides.length;
 
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
+    Array.from(slides).forEach(s => s.style.display = 'none');
+    dots.forEach(d => d.classList.remove('active'));
 
-    slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].className += " active";
+    slides[slideIndex - 1].style.display = 'block';
+    if (dots[slideIndex - 1]) dots[slideIndex - 1].classList.add('active');
 
-    slideTimer = setTimeout(autoSlide, 4000); 
-}
-
-function autoSlide() {
-    showSlides(slideIndex += 1); 
+    slideTimer = setTimeout(() => showSlides(slideIndex + 1), 4000);
 }
 </script>
 </body>
