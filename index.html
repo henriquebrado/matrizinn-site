@@ -92,7 +92,8 @@
             font-size: 1.4rem;
             margin-top: 40px;
             margin-bottom: 8px;
-            display: inline-block;
+            display: block;
+            clear: both;
             padding-bottom: 6px;
             border-bottom: 2px solid var(--gold);
         }
@@ -140,6 +141,54 @@
             margin-right: 10px;
         }
 
+        /* WhatsApp botão inline */
+        .whatsapp-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 26px;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .whatsapp-btn:hover {
+            background: #1ebe57;
+            transform: translateY(-2px);
+        }
+
+        .whatsapp-btn i {
+            margin-right: 8px;
+        }
+
+        /* WhatsApp ícone flutuante */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            text-decoration: none;
+            transition: transform 0.3s ease, background 0.3s ease;
+            z-index: 1000;
+        }
+
+        .whatsapp-float:hover {
+            background: #1ebe57;
+            transform: scale(1.1);
+        }
+
         .social-icons {
             margin-top: 30px;
             display: flex;
@@ -180,7 +229,7 @@
 
         /* --- SLIDESHOW ALOJAMENTOS --- */
         .ss-slide { display: none; border-radius: 8px; }
-        .ss-slide img { border-radius: 8px; vertical-align: middle; width: 100%; }
+        .ss-slide img { border-radius: 8px; vertical-align: middle; width: 100%; height: 420px; object-fit: cover; }
         .ss-slide.fade { animation-name: fade; animation-duration: 1.5s; }
 
         /* --- SLIDESHOW FAFE --- */
@@ -364,7 +413,6 @@
     <!-- ===== SLIDESHOW 3: Matriz Inn IV - 2.º dto frt ===== -->
     <h3 class="apt-title">Apartamento T3 – Matriz Inn IV</h3>
     <div class="slideshow-container">
-        
         <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/1P6A0674.jpg" alt="Matriz Inn IV"></div>
         <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/1P6A0689.jpg" alt="Matriz Inn IV"></div>
         <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/1P6A0702.jpg" alt="Matriz Inn IV"></div>
@@ -372,7 +420,6 @@
         <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/1P6A0725.jpg" alt="Matriz Inn IV"></div>
         <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/1P6A0728.jpg" alt="Matriz Inn IV"></div>
         <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/1P6A0737.jpg" alt="Matriz Inn IV"></div>
-        
         <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/1P6A0747.jpg" alt="Matriz Inn IV"></div>
         <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/1P6A0750.jpg" alt="Matriz Inn IV"></div>
         <div class="ss-slide fade" data-ss="3"><img src="imgs/Matriz Inn IV - 2.º dto frt/1P6A0768.jpg" alt="Matriz Inn IV"></div>
@@ -489,6 +536,10 @@
         <a href="mailto:matrizinn@gmail.com" class="highlight" style="text-decoration: none;">matrizinn@gmail.com</a>
     </p>
 
+    <a href="https://wa.me/351917616977" class="whatsapp-btn" target="_blank" id="txt-whatsapp-btn">
+        <i class="fab fa-whatsapp"></i> Reservar por WhatsApp
+    </a>
+
     <div class="social-icons">
         <a href="https://www.facebook.com/profile.php?id=61572360527091" target="_blank" class="social-btn" aria-label="Facebook">
             <i class="fab fa-facebook-f"></i>
@@ -505,6 +556,11 @@
         #MatrizInn #AlojamentoLocal #Fafe #StayWithUs
     </div>
 </div>
+
+<!-- Ícone flutuante WhatsApp -->
+<a href="https://wa.me/351917616977" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
 
 <script>
 /* =====================================================
@@ -523,7 +579,8 @@ const translations = {
         visit: "Visite Fafe",
         credit: "Fonte: Município de Fafe, Internet",
         follow: "Siga a nossa página e descubra tudo o que aí vem!",
-        bookings: "Reservas a partir de 15 de Março para o email:"
+        bookings: "Reservas a partir de 15 de Março para o email:",
+        whatsappBtn: "Reservar por WhatsApp"
     },
     en: {
         title: "The moment has arrived! ✨",
@@ -537,7 +594,8 @@ const translations = {
         visit: "Visit Fafe",
         credit: "Source: Fafe Municipality, Internet",
         follow: "Follow our page and discover everything that is coming!",
-        bookings: "Bookings from March 15th via email:"
+        bookings: "Bookings from March 15th via email:",
+        whatsappBtn: "Book via WhatsApp"
     },
     es: {
         title: "¡Llegó el momento! ✨",
@@ -551,7 +609,8 @@ const translations = {
         visit: "Visita Fafe",
         credit: "Fuente: Municipio de Fafe, Internet",
         follow: "¡Siga nuestra página y descubra todo lo que viene!",
-        bookings: "Reservas a partir del 15 de marzo por correo electrónico:"
+        bookings: "Reservas a partir del 15 de marzo por correo electrónico:",
+        whatsappBtn: "Reservar por WhatsApp"
     },
     fr: {
         title: "Le moment est arrivé ! ✨",
@@ -565,7 +624,8 @@ const translations = {
         visit: "Visitez Fafe",
         credit: "Source : Municipalité de Fafe, Internet",
         follow: "Suivez notre page et découvrez tout ce qui arrive !",
-        bookings: "Réservations à partir du 15 mars par e-mail :"
+        bookings: "Réservations à partir du 15 mars par e-mail :",
+        whatsappBtn: "Réserver par WhatsApp"
     }
 };
 
@@ -582,6 +642,7 @@ function changeLanguage(lang) {
     document.getElementById('txt-credit').innerText   = translations[lang].credit;
     document.getElementById('txt-follow').innerText   = translations[lang].follow;
     document.getElementById('txt-bookings').innerText = translations[lang].bookings;
+    document.getElementById('txt-whatsapp-btn').innerHTML = '<i class="fab fa-whatsapp"></i> ' + translations[lang].whatsappBtn;
 
     document.querySelectorAll('.lang-flag').forEach(f => f.classList.remove('active'));
     const clicked = document.querySelector(`.lang-flag[onclick="changeLanguage('${lang}')"]`);
@@ -652,8 +713,8 @@ function currentSlide(n) {
 }
 
 function showSlides(n) {
-    const slides  = document.getElementsByClassName("mySlides");
-    const dots    = document.querySelectorAll('#fafe-dots .dot');
+    const slides = document.getElementsByClassName("mySlides");
+    const dots   = document.querySelectorAll('#fafe-dots .dot');
 
     if (n > slides.length) slideIndex = 1;
     if (n < 1) slideIndex = slides.length;
