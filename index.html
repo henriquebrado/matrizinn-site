@@ -447,6 +447,29 @@
     </div>
     <div class="dots-container" id="ss3-dots"></div>
 
+    <!-- ===== SLIDESHOW 4: Matriz Inn II ===== -->
+    <h3 class="apt-title">Estúdio – Matriz Inn II</h3>
+    <div class="slideshow-container">
+        <div class="ss-slide fade" data-ss="4"><img src="imgs/matrizII/1.jpg" alt="Matriz Inn II"></div>
+        <div class="ss-slide fade" data-ss="4"><img src="imgs/matrizII/2.jpg" alt="Matriz Inn II"></div>
+        <div class="ss-slide fade" data-ss="4"><img src="imgs/matrizII/3.jpg" alt="Matriz Inn II"></div>
+        <div class="ss-slide fade" data-ss="4"><img src="imgs/matrizII/4.jpg" alt="Matriz Inn II"></div>
+        <div class="ss-slide fade" data-ss="4"><img src="imgs/matrizII/5.jpg" alt="Matriz Inn II"></div>
+        <div class="ss-slide fade" data-ss="4"><img src="imgs/matrizII/6.jpg" alt="Matriz Inn II"></div>
+        <div class="ss-slide fade" data-ss="4"><img src="imgs/matrizII/7.jpg" alt="Matriz Inn II"></div>
+        <div class="ss-slide fade" data-ss="4"><img src="imgs/matrizII/8.jpg" alt="Matriz Inn II"></div>
+        <div class="ss-slide fade" data-ss="4"><img src="imgs/matrizII/9.jpg" alt="Matriz Inn II"></div>
+        <div class="ss-slide fade" data-ss="4"><img src="imgs/matrizII/10.jpg" alt="Matriz Inn II"></div>
+        <div class="ss-slide fade" data-ss="4"><img src="imgs/matrizII/11.jpg" alt="Matriz Inn II"></div>
+        <div class="ss-slide fade" data-ss="4"><img src="imgs/matrizII/13.jpg" alt="Matriz Inn II"></div>
+        <div class="ss-slide fade" data-ss="4"><img src="imgs/matrizII/14.jpg" alt="Matriz Inn II"></div>
+        <div class="ss-slide fade" data-ss="4"><img src="imgs/matrizII/15.jpg" alt="Matriz Inn II"></div>
+        <div class="ss-slide fade" data-ss="4"><img src="imgs/matrizII/16.jpg" alt="Matriz Inn II"></div>
+        <a class="prev" onclick="plusSS(4,-1)">&#10094;</a>
+        <a class="next" onclick="plusSS(4,1)">&#10095;</a>
+    </div>
+    <div class="dots-container" id="ss4-dots"></div>
+
     <!-- ===== SLIDESHOW FAFE (original) ===== -->
     <h2 id="txt-visit">Visite Fafe</h2>
 
@@ -655,7 +678,8 @@ function changeLanguage(lang) {
 const ssState = {
     1: { index: 1, timer: null },
     2: { index: 1, timer: null },
-    3: { index: 1, timer: null }
+    3: { index: 1, timer: null },
+    4: { index: 1, timer: null }
 };
 
 function initSS(id) {
@@ -694,6 +718,7 @@ function plusSS(id, n) {
 initSS(1);
 initSS(2);
 initSS(3);
+initSS(4);
 
 /* =====================================================
    SLIDESHOW FAFE (original)
